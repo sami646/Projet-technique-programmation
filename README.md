@@ -22,6 +22,7 @@ pour extraire les informations du site web des musées de Strasbourg.
 Ainsi nous avons utilisé la bibliothèque Selenium pour stocker 
 les informations sur les réservations de billets de groupe dans la page web de la réservation.
 
+### Conclusion ###
 Ce projet a permis de créer une interface utilisateur simple et efficace 
 pour aider les utilisateurs à trouver des informations sur les musées de Strasbourg et à réserver des billets pour les groupes.
 Cela peut aider à encourager les visites de musées, en particulier parmi les groupes, et à faciliter la planification de voyages culturels.
