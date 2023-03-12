@@ -1,0 +1,70 @@
+---
+title: "Project musées"
+author: "Samira Dabzat, Kelly Bertille"
+date: "2023-03-12"
+output: powerpoint_presentation
+---
+
+
+## Introduction projet musée
+
+-Le projet consiste à faciliter la démarche de recherche de musées dans la ville de Strasbourg. 
+ Le projet a été conçu dans l'objectif d'extraire les informations sur les musées de Strasbourg à partir de leur site web dans un deuxième moment à réserver le ticket pour le musée choisit par l'utisateur. 
+-Les informations extraites incluent les descriptions des musées, les heures d'ouverture, les les tarifs d'entrée et les jours d'ouverture.
+
+
+## La première partie du projet 
+**Le webscraping pour extraire les informations sur les musées**
+
+-La première partie du projet a consisté à créer une interface utilisateur pour permettre aux utilisateurs de poser des questions sur les musées. Les questions ont été formulées de manière à rendre couvrir les informations les plus impotantes et en fonction de la réponse de l'utilisateur, l'interface affiche les informations sur le musée choisi.
+
+-Le site que nous avons utilisé est : 
+-Pour l'extraction des informations : https://www.musees.strasbourg.eu
+
+-Les packages Python que nous avons utilisés sont:
+
+-re: fournit des opérations de correspondance d'expressions régulières.
+-requests:  permet d'envoyer des requêtes HTTP en utilisant Python.
+-BeautifulSoup: utilisé pour analyser les documents HTML.
+
+
+## La deuxième partie du projet
+**L'automatisation de la réservation **
+
+La deuxième partie du projet a été axée sur la réservation de billets pour les groupes. L'interface de réservation permet à l'utilisateur de sélectionner le musée, la date et l'heure de visite, le nombre de personnes ainsi que tous les détails sur l’établissement du groupe. L'utilisateur peut également ajouter les collections qu’il souhaite voir dans le musée.
+
+
+## Le site utilisé##
+
+-Le site que nous avons utilisé est : 
+-Pour la réservation : https://demarches.strasbourg.eu/culture-loisirs/musees-reservation-groupe/
+
+Elle est en effet diviseé en ces grandes etapes:
+
+-La 1ere partie est l'interface qui permet au utilisateur de faire un choix du musee,le jour ainsi que l'heure
+-La 2eme partie de l'interface va demander a l'utilisateur son nom complet,son mail, son numero de telephone, son code postal, enfin tous les details.
+
+## Problème rencontré
+
+3. Le probleme qu'on a rencontre popur la résevation est le fait qu'avant on avait creer une variable a 
+partir du code XPATH du site.
+Une première solution que nous avons trouvé était de créer une variable pour chaque musée à laquelle on associe le XPATH mais cela nécéssitait que le nom du musee soit indiqué via des traits d'union.
+
+## Code
+musee_archeologique = //*[@id="var_musee"]/div[2]/label[1]/span
+musee_arts_decoratifs = //*[@id="var_musee"]/div[2]/label[2]/span
+musee_historique = //*[@id="var_musee"]/div[2]/label[6]/span
+
+musees_visiter = input("Quel musée voulez vous visiter parmi les suivants : musee_archeologique \nmusee_arts_decoratifs\n musee_arts_decoratifs: ")
+
+musee_choisis = musees_visiter
+element = web.find_element(By.XPATH, musee_choisis)
+element.click() 
+
+## La solution que nous avons appliquée est la suivante:##
+
+musees_visiter = input("Quel musée voulez vous visiter parmi les suivants :\n Musée Archéologique: 1\n Musée arts décoratifs: 2\n Musée beaux arts: 3\n Galerie Heitz : 4\n Musée de lʼOeuvre Notre-Dame : 5\n Musée Historique de la Ville de Strasbourg : 6\n Musée Alsacien : 7\n Musée Tomi Ungerer : 8\n Musée dʼArt moderne et contemporain : 9\n Aubette 1928 : 10\n Musée Zoologique : 11\n Pôle dʼétude et de conservation : 12\n")
+
+musee_choisi = '//*[@id="var_musee"]/div[2]/label[{}]/span'.format(musees_visiter)
+element = web.find_element(By.XPATH, musee_choisis)
+element.click() 
